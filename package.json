@@ -31,8 +31,13 @@
   },
   "dependencies": {
     "babel": "^6.23.0",
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.3",
+    "express-middleware": "^3.4.2",
     "express-validator": "^6.14.2",
-    "promise-mysql": "^5.2.0"
+    "jsonwebtoken": "^8.5.1",
+    "middleware-nodejs": "^1.0.0",
+    "promise-mysql": "^5.2.0",
+    "uuid": "^9.0.0"
   }
 }

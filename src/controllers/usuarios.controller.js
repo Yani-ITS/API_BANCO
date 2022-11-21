@@ -1,6 +1,6 @@
 const {getConnection} = require('./../database/database');
 const {request, response} = require('express');
-
+const bcrypt = require('bcryptjs')
 
 const getUsers = async(req=request, res=response)=>{
     try {
@@ -54,9 +54,9 @@ const addUser = async(req, res)=>{
             avatar
         }
 
-        //encriptar la password:
-        /*const salt = bcrypt.genSaltSync();
-        usuario.password = bcrypt.hashSync(password, salt);*/
+        //encriptar la password: añado encriptador, instalo npm bcryptjs, llamo bcrypt
+        const salt = bcrypt.genSaltSync();
+        usuario.contrasenia= bcrypt.hashSync(contrasenia, salt);
 
         const connection = await getConnection();
         const sql = 'INSERT INTO usuarios set ?';

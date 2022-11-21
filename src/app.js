@@ -10,6 +10,7 @@ app.use(morgan("dev"));
 
 app.use('/api/usuarios', require('./routes/usuarios.routes') );
 app.use('/api/transacciones', require('./routes/transacciones.routes'));
+app.use('/api/login', require('./routes/auth.routes'));
 
 
 
