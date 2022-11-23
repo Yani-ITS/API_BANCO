@@ -1,7 +1,9 @@
 const {getConnection} = require('./../database/database');
 const {request, response} = require('express');
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs');
+const { generarJWT } = require('../helpers/JWT');
 
+/*Lista todos los usuarios*/ 
 const getUsers = async(req=request, res=response)=>{
     try {
         console.log('Controlador usuario');
@@ -21,6 +23,7 @@ const getUsers = async(req=request, res=response)=>{
     }
 }
 
+/*Obtiene un usuario x id */
 const getUsuario = async(req=request, res=response)=>{
     try {
         const { id }= req.params
@@ -41,9 +44,12 @@ const getUsuario = async(req=request, res=response)=>{
     }
 }
 
+/*Agrega un usuario */
 const addUser = async(req, res)=>{
+
     try {
         const {username, nombre, apellido, email, rol, contrasenia, avatar} = req.body;
+    
         const usuario = {
             username,
             nombre,
@@ -61,11 +67,12 @@ const addUser = async(req, res)=>{
         const connection = await getConnection();
         const sql = 'INSERT INTO usuarios set ?';
         const resultado = await connection.query(sql,usuario);
+        /*const token = await generarJWT(resultado[0])*/
 
-        
         return res.status(200).json({
             ok:true,
-            msg:'Usuario creado con exito'
+            msg:'Usuario creado con exito',
+            
         })
 
     } catch (error) {
@@ -73,10 +80,11 @@ const addUser = async(req, res)=>{
             ok:false,
             msg: error.message
         })
+    
     }
 }
 
-
+/*actualiza usuario */
 const updateUser = async(req, res)=>{
     try {
         const { id } = req.params
@@ -111,6 +119,8 @@ const updateUser = async(req, res)=>{
     }
 }
 
+
+/*elimina usuario */
 const deleteUsuario = async(req=request, res=response)=>{
     try {
         const { id }= req.params

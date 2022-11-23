@@ -1,5 +1,6 @@
 const mysql = require('promise-mysql');
-const config = require("./../config");
+/*const config = require("./../config");*/
+/*import { config } from './../config';*/
 
 const connection = mysql.createConnection({
     host:'localhost',
@@ -14,11 +15,13 @@ const connection = mysql.createConnection({
     database:config.database,
     user:config.user,
     password:config.password,
-    NO PUEDO HACER FUNCIONAR CONFIG + .ENV
+    /*NO PUEDO HACER FUNCIONAR CONFIG + .ENV
 })*/
 
 const  getConnection = ()=>{
+    console.log("anda")
     return connection
+    
 }
 
 module.exports = {

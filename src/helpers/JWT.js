@@ -1,11 +1,14 @@
 const jwt = require('jsonwebtoken');
 
+
 const generarJWT = (id) => {
     return new Promise((resolved, reject) => {
+        
         const payload = {id};
         console.log("vino aca");
+
         jwt.sign(payload, process.env.JWT_SECRET, {
-            expiresIn: '4h'
+            expiresIn: ''
         }, (err, token) => {
             if (err) {
                 console.log(err);

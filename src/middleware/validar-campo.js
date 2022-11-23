@@ -17,4 +17,4 @@ module.exports = {
     validarCampo
 }
 
-//donde llamo los middleware?, los deje sin efecto xq me tiraba error
+//

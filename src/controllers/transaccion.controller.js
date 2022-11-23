@@ -1,6 +1,7 @@
 const {getConnection} = require('./../database/database');
 const {request, response} = require('express');
 
+/* ver las transacciones */
 const getTransaccion = async(req=request, res=response)=>{
     try {
         console.log('Controlador transacciones');
@@ -20,6 +21,7 @@ const getTransaccion = async(req=request, res=response)=>{
     }
 }
 
+/*registrar transacciones */
 const addTransaccion = async(req, res)=>{
     try {
         const {origen, destino, cantidad, fecha} = req.body;

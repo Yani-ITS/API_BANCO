@@ -37,7 +37,6 @@ const login = async(req, res)=>{
                 error:'Contraseña incorrecta'
             })
         }
-        
         //si existe el usuario y la contrasenia es correcta generamos el token
 
         console.log(resultado[0].id);
