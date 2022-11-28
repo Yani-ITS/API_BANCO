@@ -5,7 +5,7 @@ const { coleccionesPermitidas } = require('../helpers/db-validator');
 
 const route = Router();
 
-route.post('/', subirArchivo);
+route.post('/api/upload', subirArchivo);
 route.get('/:coleccion/:id',[
     check('coleccion').custom(c => coleccionesPermitidas(c, ['users']))
 ],getImage)

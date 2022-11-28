@@ -1,6 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
-/*const fileUpload = require('express-fileUpload');*/
+const fileUpload = require('express-fileupload');
 const app=express();
 
 app.set('port', 3000)
@@ -10,12 +10,7 @@ app.use(express.json());
 app.use(morgan("dev"));
 
 
-/*app.use(fileUpload({
-    useTempFiles : true,
-    tempFileDir : '/tmp/',
-    limits: { fileSize: 50 * 1024 * 1024 },
-    createParentPath:true
-}));*/
+app.use(fileUpload());
 
 app.use('/api/usuarios', require('./routes/usuarios.routes') );
 app.use('/api/transacciones', require('./routes/transacciones.routes'));

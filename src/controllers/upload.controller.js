@@ -8,20 +8,21 @@ const fs = require('fs');
 
 const subirArchivo = async(req = request, res=response)=>{
 
-
     if (!req.files || Object.keys(req.files).length === 0 || !req.files.archivo) {
       res.status(400).send('Los archivos no han sido subidos.');
       return;
     }
   
-    const pathUpload = await cargarArchivos(req.files, undefined,'images/users');
+    const pathUpload = await cargarArchivos(req.files, undefined,'../uploads/documents');
   
     res.json(
-      pathUpload
+      pathUpload,
+      console.log('subido')
     )
   } //primer parte
 
-  const updateImage = async(req = request, res=response)=>{
+  
+const updateImage = async(req = request, res=response)=>{
 
     const {id, coleccion} = req.params;
   

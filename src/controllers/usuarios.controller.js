@@ -67,8 +67,7 @@ const addUser = async(req, res)=>{
         const connection = await getConnection();
         const sql = 'INSERT INTO usuarios set ?';
         const resultado = await connection.query(sql,usuario);
-        /*const token = await generarJWT(resultado[0])*/
-
+        
         return res.status(200).json({
             ok:true,
             msg:'Usuario creado con exito',

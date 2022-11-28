@@ -1,9 +1,16 @@
 
-import { config } from 'dotenv';
+const { config } = require ('dotenv')
 
-config();
+config()
 
-export const host = process.env.HOST;
-export const database = process.env.DATABASE;
-export const user = process.env.USER;
-export const password = process.env.PASSWORD;
+const host = process.env.HOST;
+const database = process.env.DATABASE;
+const user = process.env.USER;
+const password = process.env.PASSWORD;
+
+module.exports={
+    host,
+    database,
+    user,
+    password
+}
