@@ -8,7 +8,7 @@ const generarJWT = (id) => {
         console.log("vino aca");
 
         jwt.sign(payload, process.env.JWT_SECRET, {
-            expiresIn: ''
+            expiresIn: '24h'
         }, (err, token) => {
             if (err) {
                 console.log(err);
